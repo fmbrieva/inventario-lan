@@ -18,8 +18,10 @@ se crean ficheros CSV con el inventario de:
 - Módulos
 - Transceivers
 
-Si la conexión con el dispositivo se realiza mediante SSH (NAPALM) se generan ficheros con la configuración ( ```startup``` / ```running``` ) del dispositivo.
-
+```mermaid
+flowchart LR:
+    id1(Si la conexión con el dispositivo se realiza mediante SSH (NAPALM) se generan ficheros con la configuración ( ```startup``` / ```running``` ) del dispositivo.)
+```
 ## Credenciales
 
 Las credenciales de acceso
@@ -35,6 +37,7 @@ Las credenciales de acceso
   5. ```pass phrase``` (privacy protocol)
 
 pueden almacenarse en ficheros Vault ([**Ansible Vault**](https://github.com/ansible-community/ansible-vault)) para facilitar la creación de tareas que realicen el inventario periodicamente mediante crontab, etc.
+
 
 ## Modo de funcionamiento
 
