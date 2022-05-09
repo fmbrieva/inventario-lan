@@ -18,11 +18,6 @@ se crean ficheros CSV con el inventario de:
 - Módulos
 - Transceivers
 
-```mermaid
-flowchart LR
-
-tip1[Si la conexión con el dispositivo se realiza mediante SSH se generan ficheros con la configuración startup y running del dispositivo]
-```
 ## Credenciales
 
 Las credenciales de acceso
