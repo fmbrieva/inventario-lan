@@ -6,7 +6,7 @@ Script ```Python``` para automatizar el inventario de dispositivos de red median
 
 Los resultados se graban en un archivo JSON (puede ser consultado facilmente desde ```Notepad++``` con el plugin ```JSON Viewer```)
 
-  <img src="Ejemplo_Json.png" >
+  <img src="imagenes/Ejemplo_Json.png" >
   
 se crean ficheros CSV con el inventario de:
 
