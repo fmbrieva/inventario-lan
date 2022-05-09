@@ -53,7 +53,7 @@ Al ejecutar el script se utiliza ```nmap``` para descubrir el estado de los puer
    * UDP: 
      * 161 (snmp)
 
-por lo que debe estar **autorizado para poder realizar este tipo de acciones en la red a inventariar**.
+por lo que debe estar autorizado para poder realizar este tipo de acciones en la red a inventariar.
 ---
 
 ### (A) Interactivo
