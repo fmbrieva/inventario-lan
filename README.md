@@ -42,8 +42,6 @@ El script puede ejecutarse en dos modalidades:
 - ```Interactivo```: Todos los datos necesarios para la ejecución del script se solicitan de interactivamente
 - ```Comando```: Los parametros de ejecución se solicitan mediante un comando
 
----
-
 Al ejecutar el script se utiliza ```nmap``` para descubrir el estado de los puertos habituales de gestión:
 
    * TCP:
@@ -94,6 +92,8 @@ graph TD;
     Backup_Dispositivo_SSH-->Startup;
     Backup_Dispositivo_SSH-->Running;
 ```
+
+---
 
 ### (B) Comando
 
