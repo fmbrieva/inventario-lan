@@ -43,6 +43,7 @@ El script puede ejecutarse en dos modalidades:
 - ```Comando```: Los parametros de ejecución se solicitan mediante un comando
 
 ---
+
 Al ejecutar el script se utiliza ```nmap``` para descubrir el estado de los puertos habituales de gestión:
 
    * TCP:
@@ -54,6 +55,7 @@ Al ejecutar el script se utiliza ```nmap``` para descubrir el estado de los puer
      * 161 (snmp)
 
 por lo que debe estar autorizado para poder realizar este tipo de acciones en la red a inventariar.
+
 ---
 
 ### (A) Interactivo
