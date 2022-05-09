@@ -56,21 +56,6 @@ por lo que **debe estar autorizado para poder realizar este tipo de acciones en 
 
 ---
 
-### (A) Interactivo
-
-Los datos que debe proporcionar para la ejecución del script son
-
-1. Nombre de la red a inventariar
-2. Credenciales
-   1. Fichero VAULT con credenciales
-   2. Introducir credenciales (SSH, SNMP V1, V2c y V3)
-      (Puede crear un fichero VAULT con las credenciales suministradas)
-3. Dispositivos a inventariar:
-   1. Automático - Rango CIDR (ping sweep)
-   2. Fichero con direcciones IP
-   3. Añadir direcciones IP
-4. ¿Desea actualizar OUI (mac vendor) desde [**IEEE**](http://standards-oui.ieee.org/oui.txt)?
-
 ```mermaid
 graph TD;
     Red_a_inventariar-->Credenciales;
@@ -92,6 +77,23 @@ graph TD;
     Backup_Dispositivo_SSH-->Startup;
     Backup_Dispositivo_SSH-->Running;
 ```
+
+---
+
+### (A) Interactivo
+
+Los datos que debe proporcionar para la ejecución del script son
+
+1. Nombre de la red a inventariar
+2. Credenciales
+   1. Fichero VAULT con credenciales
+   2. Introducir credenciales (SSH, SNMP V1, V2c y V3)
+      (Puede crear un fichero VAULT con las credenciales suministradas)
+3. Dispositivos a inventariar:
+   1. Automático - Rango CIDR (ping sweep)
+   2. Fichero con direcciones IP
+   3. Añadir direcciones IP
+4. ¿Desea actualizar OUI (mac vendor) desde [**IEEE**](http://standards-oui.ieee.org/oui.txt)?
 
 ---
 
