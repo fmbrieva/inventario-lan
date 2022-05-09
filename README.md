@@ -34,27 +34,7 @@ Las credenciales de acceso
 
 pueden almacenarse en ficheros Vault ([**Ansible Vault**](https://github.com/ansible-community/ansible-vault)) para facilitar la creación de tareas que realicen el inventario periodicamente mediante crontab, etc.
 
-
-## Modo de funcionamiento
-
-El script puede ejecutarse en dos modalidades:
-
-- ```Interactivo```: Todos los datos necesarios para la ejecución del script se solicitan de interactivamente
-- ```Comando```: Los parametros de ejecución se solicitan mediante un comando
-
-Al ejecutar el script se utiliza ```nmap``` para descubrir el estado de los puertos habituales de gestión:
-
-   * TCP:
-     *  22(ssh)
-     *  23(telnet)
-     *  80(http)
-     *  443(https)
-   * UDP: 
-     * 161 (snmp)
-
-por lo que **debe estar autorizado para poder realizar este tipo de acciones en la red a inventariar**.
-
----
+## Flujo
 
 ```mermaid
 graph TD;
@@ -77,6 +57,25 @@ graph TD;
     Backup_Dispositivo_SSH-->Startup;
     Backup_Dispositivo_SSH-->Running;
 ```
+
+## Modo de funcionamiento
+
+El script puede ejecutarse en dos modalidades:
+
+- ```Interactivo```: Todos los datos necesarios para la ejecución del script se solicitan de interactivamente
+- ```Comando```: Los parametros de ejecución se solicitan mediante un comando
+
+Al ejecutar el script se utiliza ```nmap``` para descubrir el estado de los puertos habituales de gestión:
+
+   * TCP:
+     *  22(ssh)
+     *  23(telnet)
+     *  80(http)
+     *  443(https)
+   * UDP: 
+     * 161 (snmp)
+
+por lo que **debe estar autorizado para poder realizar este tipo de acciones en la red a inventariar**.
 
 ---
 
