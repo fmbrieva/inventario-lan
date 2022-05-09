@@ -19,7 +19,7 @@ se crean ficheros CSV con el inventario de:
 - Transceivers
 
 ```mermaid
-flowchart LR:
+flowchart LR;
     id1(Si la conexión con el dispositivo se realiza mediante SSH (NAPALM) se generan ficheros con la configuración ( ```startup``` / ```running``` ) del dispositivo.)
 ```
 ## Credenciales
