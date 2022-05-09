@@ -34,7 +34,7 @@ Las credenciales de acceso pueden ser:
   4. ```protocolo privacidad``` ( NOAUTH | MD5 | AES-128 | AES-192 | AES-256 )
   5. ```pass phrase``` (privacy protocol)
 
-Las credenciales pueden almacenarse en un fichero Vault ([**Ansible Vault**](https://github.com/ansible-community/ansible-vault)) para facilitar la creación de tareas que realicen el inventario periódicamente mediante crontab, etc.
+Pueden almacenarse en un fichero Vault ([**Ansible Vault**](https://github.com/ansible-community/ansible-vault)) para facilitar la creación de tareas que realicen el inventario periódicamente mediante crontab, etc.
 
 ## Flujo script
 
