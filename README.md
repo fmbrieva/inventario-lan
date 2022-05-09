@@ -21,7 +21,7 @@ se crean ficheros CSV con el inventario de:
 ```mermaid
 flowchart LR
 
-tip1[Si la conexión con el dispositivo se realiza mediante SSH (NAPALM) se generan ficheros con la configuración ( startup / running ) del dispositivo.]
+tip1[Si la conexión con el dispositivo se realiza mediante SSH se generan ficheros con la configuración startup y running del dispositivo]
 ```
 ## Credenciales
 
