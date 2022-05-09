@@ -4,11 +4,11 @@ Script ```Python``` para automatizar el inventario de dispositivos de red median
 
 (Script en fase de pruebas finales, pendiente de publicación)
 
-Los resultados se graban en un archivo JSON (puede ser consultado facilmente desde ```Notepad++``` con el plugin ```JSON Viewer```)
+Los resultados se graban en un archivo bulk ```JSON``` (puede ser consultado fácilmente desde ```Notepad++``` con el plugin ```JSON Viewer```)
 
   <img src="imagenes/Ejemplo_Json.png" >
   
-se crean ficheros CSV con el inventario de:
+y se crean ficheros CSV con el inventario de:
 
 - Switches
 - Enlaces
@@ -18,9 +18,11 @@ se crean ficheros CSV con el inventario de:
 - Módulos
 - Transceivers
 
+Si la conexión con el dispositivo se realiza mediante SSH (NAPALM) se generan ficheros con la configuración ( ```startup``` / ```running``` ) del dispositivo.
+
 ## Credenciales
 
-Las credenciales de acceso
+Las credenciales de acceso pueden ser:
 
 * SSH (```usuario``` ```password```)
 * SNMP V1 (```comunidad```)
@@ -32,28 +34,28 @@ Las credenciales de acceso
   4. ```protocolo privacidad``` ( NOAUTH | MD5 | AES-128 | AES-192 | AES-256 )
   5. ```pass phrase``` (privacy protocol)
 
-pueden almacenarse en ficheros Vault ([**Ansible Vault**](https://github.com/ansible-community/ansible-vault)) para facilitar la creación de tareas que realicen el inventario periodicamente mediante crontab, etc.
+Las credenciales pueden almacenarse en un fichero Vault ([**Ansible Vault**](https://github.com/ansible-community/ansible-vault)) para facilitar la creación de tareas que realicen el inventario periódicamente mediante crontab, etc.
 
-## Flujo
+## Flujo script
 
 ```mermaid
 graph TD;
-    Red_a_inventariar-->Credenciales;
-    Credenciales-->Credenciales_Fichero_Vault;
-    Credenciales-->Credenciales_Manualmente;
-    Credenciales_Fichero_Vault-->Equipos_a_inventariar;
+    Red(Red a inventariar)-->Credenciales(Solicitar credenciales);
+    Credenciales-->Credenciales_Fichero_Vault(1. Credenciales fichero VAULT);
+    Credenciales-->Credenciales_Manualmente(2. Introducir credenciales manualmente);
+    Credenciales_Fichero_Vault-->Equipos_a_inventariar(Equipos a inventariar);
     Credenciales_Manualmente-->Equipos_a_inventariar;
-    Credenciales_Manualmente-->Crear_Vault_Con_Credenciales;
-    Equipos_a_inventariar-->Red_CIDR;
-    Equipos_a_inventariar-->Fichero_IP;
-    Equipos_a_inventariar-->Introducir_IP;
-    Red_CIDR-->Actualizar_OUI;
+    Credenciales_Manualmente-->Crear_Vault_Con_Credenciales(Crear fichero VAULT con credenciales);
+    Equipos_a_inventariar-->Red_CIDR(1. Red - CIDR);
+    Equipos_a_inventariar-->Fichero_IP(2. Fichero con IPs);
+    Equipos_a_inventariar-->Introducir_IP(3. IPs manualmente);
+    Red_CIDR-->Actualizar_OUI(Actualizar tabla OUI);
     Fichero_IP-->Actualizar_OUI;
     Introducir_IP-->Actualizar_OUI;
-    Actualizar_OUI--> Thread_Inventariar_Activos;
-    Thread_Inventariar_Activos-->Resultados_Bulk;
-    Thread_Inventariar_Activos-->Resultados_CSV;
-    Thread_Inventariar_Activos-->Backup_Dispositivo_SSH;
+    Actualizar_OUI--> Thread_Inventariar_Activos(Thread para inventariar activos - MAC, enlaces,  modulos, transceivers, ...);
+    Thread_Inventariar_Activos-->Resultados_Bulk(Fichero Bulk con resultados);
+    Thread_Inventariar_Activos-->Resultados_CSV(Resultados en ficheros CSV);
+    Thread_Inventariar_Activos-->Backup_Dispositivo_SSH(Backup dispositivo - Solo SSH);
     Backup_Dispositivo_SSH-->Startup;
     Backup_Dispositivo_SSH-->Running;
 ```
@@ -138,7 +140,7 @@ optional arguments:
 
  Parches y nuevas funciones
 
-| Driver | Notas | Tipo |
+| Driver | Detalle | Acción |
 | --- | --- | --- |
 | [**napalm-hp-procurve**](https://github.com/fmbrieva/napalm-hp-procurve/commits/master) | Stacking | Patch |
 | [**napalm-hp-procurve**](https://github.com/fmbrieva/napalm-hp-procurve/commits/master) | ChassisId truncated | Bug |
