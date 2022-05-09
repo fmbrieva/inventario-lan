@@ -42,6 +42,20 @@ El script puede ejecutarse en dos modalidades:
 - ```Interactivo```: Todos los datos necesarios para la ejecución del script se solicitan de interactivamente
 - ```Comando```: Los parametros de ejecución se solicitan mediante un comando
 
+---
+Al ejecutar el script se utiliza ```nmap``` para descubrir el estado de los puertos habituales de gestión:
+
+   * TCP:
+     *  22(ssh)
+     *  23(telnet)
+     *  80(http)
+     *  443(https)
+   * UDP: 
+     * 161 (snmp)
+
+por lo que debe estar **autorizado para poder realizar este tipo de acciones en la red a inventariar**.
+---
+
 ### (A) Interactivo
 
 Los datos que debe proporcionar para la ejecución del script son
@@ -55,7 +69,7 @@ Los datos que debe proporcionar para la ejecución del script son
    1. Automático - Rango CIDR (ping sweep)
    2. Fichero con direcciones IP
    3. Añadir direcciones IP
-4. Desea actualizar OUI (mac vendor) desde [**IEEE**](http://standards-oui.ieee.org/oui.txt)
+4. ¿Desea actualizar OUI (mac vendor) desde [**IEEE**](http://standards-oui.ieee.org/oui.txt)?
 
 ```mermaid
 graph TD;
@@ -78,18 +92,6 @@ graph TD;
     Backup_Dispositivo_SSH-->Startup;
     Backup_Dispositivo_SSH-->Running;
 ```
-
-Al ejecutar el script se utiliza ```nmap``` para descubrir el estado de los puertos habituales de gestión:
-
-   * TCP:
-     *  22(ssh)
-     *  23(telnet)
-     *  80(http)
-     *  443(https)
-   * UDP: 
-     * 161 (snmp)
-
-por lo que debe estar **autorizado para poder realizar este tipo de acciones en la red a inventariar**.
 
 ### (B) Comando
 
