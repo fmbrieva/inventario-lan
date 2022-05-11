@@ -138,7 +138,11 @@ optional arguments:
 
 ## Modificaciones 
 
- Parches y nuevas funciones
+Drivers NAPALM incluidos
+* Aruba HP Procurve
+* HPE Comware V5 - Flexfabric
+
+### ACtualizaciones Drivers NAPALM
 
 | Driver | Detalle | Acción |
 | --- | --- | --- |
